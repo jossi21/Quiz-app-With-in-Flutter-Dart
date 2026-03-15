@@ -19,6 +19,7 @@ class _QuizState extends State<Quiz> {
   void switchScreen() {
     setState(() {
       activeScreen = "question_screen";
+      selectedAnswer = [];
     });
   }
 
@@ -32,14 +33,6 @@ class _QuizState extends State<Quiz> {
     }
   }
 
-  //  navigate the question_screen and clear selected answers
-  void restartQuiz() {
-    setState(() {
-      activeScreen = "home_screen";
-      selectedAnswer = [];
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     Widget displayWidget = HomePage(startQuiz: switchScreen);
@@ -49,7 +42,7 @@ class _QuizState extends State<Quiz> {
     } else if (activeScreen == "answer_screen") {
       displayWidget = AnswerScreen(
         selectedAnswer: selectedAnswer,
-        restartQuiz: restartQuiz,
+        restartQuiz: switchScreen,
       );
     }
     return MaterialApp(
