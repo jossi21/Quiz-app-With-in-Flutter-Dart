@@ -16,6 +16,7 @@ class ResultsColumn extends StatelessWidget {
             return SizedBox(
               width: double.infinity,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 spacing: 20,
                 children: [
                   CircleAvatar(
